@@ -8,7 +8,7 @@ gem 'devise'
 gem 'twitter-bootstrap-rails'
 
 gem 'bootstrap-sass', '~> 3.3'
-
+gem 'stripe'
 
 gem 'jquery-rails'
 gem 'sass-rails'
