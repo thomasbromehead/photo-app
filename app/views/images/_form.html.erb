@@ -25,7 +25,7 @@
   <div class="form-group">
     <%= f.label :picture, :class => 'control-label col-lg-2' %>
     <div class="col-lg-10">
-      <%= f.file_field :picture, :class => 'form-control' %>
+      <%= f.file_field :picture, accept:"image/jpeg, image/gif, image/png" %>
     </div>
     <%=f.error_span(:picture) %>
   </div>
@@ -46,3 +46,13 @@
   </div>
 
 <% end %>
+
+<script type='text/javascript'>
+  //Use input event listener 'change', usable on inputs such as date, file, textarea etc.
+  document.getElementById('image_picture').addEventListener('change', () => {
+    let size_in_mb = (this.files[0].size)/1024/1024
+    if(size_in_mb > 5){
+      alert('Max file size is 5MB')
+    }
+  })
+</script>
