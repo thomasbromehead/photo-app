@@ -1,6 +1,8 @@
+
+
 <h1><%= t('.sign_up') %></h1>
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: {role: "form", class:"cc_form"}) do |f| %>
 
 
   <div class="form-group">
@@ -26,21 +28,21 @@
     <div class="col-md-12">
       <div class="col-md-4 form-group no-left-padding">
       <%= f.label :card_number, "Card Number", data: {stripe: 'label'} %>
-      <%= f.text_field :card_number, class: "form-control",required:true, data: {stripe: 'number'} %>
+      <%= f.text_field :card_number, class: "form-control", data: {stripe: 'number'} %>
       </div>
       <div class="form-group col-md-2">
         <%= f.label :card_cvc, "Card CVC", data: {stripe: 'label'} %>
-        <%= f.text_field :card_cvc, class:"form-control", required: true, data: {stripe: 'cvc'} %>
+        <%= f.text_field :card_cvc, class:"form-control", data: {stripe: 'cvc'} %>
       </div>
       <div class="form-group col-md-6">
         <div class="col-md-12">
           <%= f.label :card_expires, "Card Expiry", data: {stripe: "label"} %>
         </div>
         <div class="col-md-6">
-          <%= f.select :card_expires_month, options_for_select(Payment.month_options), {include_blank: 'Month'}, "data-stripe"=> "exp-month", class:"form-control", required: true %>
+          <%= f.select :card_expires_month, options_for_select(Payment.month_options), {include_blank: 'Month'}, "data-stripe"=> "exp-month", class:"form-control" %>
         </div>
         <div class="col-md-6">
-          <%= f.select :card_expires_year, options_for_select(Payment.year_options), {include_blank: 'Year'}, "data-stripe"=> "exp-year", class:"form-control", required: true %>
+          <%= f.select :card_expires_year, options_for_select(Payment.year_options), {include_blank: 'Year'}, "data-stripe"=> "exp-year", class:"form-control" %>
         </div>
       </div>
     </div>
@@ -55,3 +57,5 @@
 <% end %>
 
 <%= render 'devise/shared/links' %>
+
+<%= console %>
